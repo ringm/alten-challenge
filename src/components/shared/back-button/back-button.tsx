@@ -9,7 +9,7 @@ export const BackButton = () => {
   return (
     <button className={s.button} onClick={() => router.back()}>
       <CaretLeft />
-      <span>back</span>
+      <span>atrás</span>
     </button>
   );
 };

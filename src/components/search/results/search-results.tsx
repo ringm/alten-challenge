@@ -10,7 +10,7 @@ export const SearchResults: React.FC<{ searchQuery: string }> = async ({ searchQ
   }
   return (
     <section>
-      <h2 className={s.title}>{data.length} results</h2>
+      <h2 className={s.title}>{data.length} resultados</h2>
       {data.length > 0 ? (
         <div className={s.results__wrapper} data-less-than-three={data.length < 3}>
           {data.map((product, i) => (
@@ -19,8 +19,8 @@ export const SearchResults: React.FC<{ searchQuery: string }> = async ({ searchQ
         </div>
       ) : (
         <div>
-          No results. Try searching a different brand (&quot;Apple&quot;, &quot;Samsung&quot;, etc) or model
-          (&quot;Galaxy&quot;, &quot;iPhone&quot;).
+          No encontramos resultados para tu búsqueda. Intenta con otra marca (&quot;Apple&quot;, &quot;Samsung&quot;,
+          etc) o modelo (&quot;Galaxy&quot;, &quot;iPhone&quot;, etc).
         </div>
       )}
     </section>

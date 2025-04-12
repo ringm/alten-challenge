@@ -14,7 +14,7 @@ export default async function ProductPage({
   const { storage, color } = await searchParams;
   const product = await getProductById(id);
   if (!product) {
-    return <div>Product not found</div>;
+    return <div>Producto no econtrado</div>;
   }
   return (
     <>

@@ -17,10 +17,10 @@ export const CartSummary: React.FC = () => {
       </div>
       <div className={s.cart_actions}>
         <Link className={s.continue_btn_link} href={{ pathname: "/" }}>
-          <button className={s.continue_btn}>continue shopping</button>
+          <button className={s.continue_btn}>seguir comprando</button>
         </Link>
         <button disabled={isClient ? cartTotal === 0 : true} className={s.pay_btn}>
-          pay
+          pagar
         </button>
       </div>
     </div>

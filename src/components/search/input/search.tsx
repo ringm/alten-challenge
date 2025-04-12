@@ -40,8 +40,8 @@ export const Search: React.FC = () => {
       <input
         className={s.input}
         type="search"
-        aria-label="Search for a smartphone"
-        placeholder="Search for a smartphone"
+        aria-label="Busca por modelo o marca"
+        placeholder="Busca por modelo o marca"
         defaultValue={searchParams.get("search") || ""}
         onChange={handleInputChange}
       />

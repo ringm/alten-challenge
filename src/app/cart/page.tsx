@@ -7,7 +7,7 @@ export default function CartPage() {
   return (
     <div className={s.wrapper}>
       <h1 className={s.title}>
-        Cart
+        Carrito
         <span>
           (<CartCounter />)
         </span>

@@ -7,7 +7,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   return (
     <>
       <Search />
-      <Suspense fallback={<p style={{ marginTop: "5rem" }}>Loading results...</p>}>
+      <Suspense fallback={<p style={{ marginTop: "5rem" }}>Cargando resultados...</p>}>
         <SearchResults searchQuery={searchQuery} />
       </Suspense>
     </>

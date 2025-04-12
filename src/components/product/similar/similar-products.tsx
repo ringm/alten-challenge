@@ -19,7 +19,7 @@ export const SimilarProducts: React.FC<Props> = ({ similarProducts }) => {
 
   return (
     <section className={s.section}>
-      <h2 className={s.title}>similar products</h2>
+      <h2 className={s.title}>productos similares</h2>
       <div className={s.slider_wrapper}>
         <div ref={containerRef} className={s.slider_container}>
           <div className={s.slider}>
