@@ -4,13 +4,6 @@
   margin-bottom: 1.5rem;
 }
 
-.cart_list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
-  gap: 1rem;
-  padding-bottom: 9rem;
-}
-
 .cart_footer {
   position: fixed;
   background-color: white;
@@ -56,6 +49,12 @@
 .pay_btn {
   background-color: var(--gray-700);
   color: white;
+}
+
+.pay_btn:disabled {
+  cursor: not-allowed;
+  border: none;
+  background-color: var(--gray-300);
 }
 
 @media (min-width: 768px) {
