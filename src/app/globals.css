@@ -1,6 +1,8 @@
 :root {
   --gray-300: #cccccc;
   --gray-500: #79736d;
+  --gray-700: #1b1a18;
+  --red-500: #df0000;
 }
 
 html,
@@ -25,8 +27,7 @@ body {
 }
 
 .wrapper {
-  width: 100%;
-  max-width: 120rem;
+  width: min(100%, 120rem);
   padding: 0 1rem;
 }
 
