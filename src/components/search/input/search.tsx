@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useCallback } from "react";
+import { useSearchParams } from "next/navigation";
 import { useUpdateQueryParam } from "@/hooks/useUpdateQueryParam";
 import { ChangeEvent } from "react";
 
@@ -8,6 +9,7 @@ import s from "./search.module.css";
 
 export const Search: React.FC = () => {
   const updateQuery = useUpdateQueryParam();
+  const searchParams = useSearchParams();
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -40,6 +42,7 @@ export const Search: React.FC = () => {
         type="search"
         aria-label="Search for a smartphone"
         placeholder="Search for a smartphone"
+        defaultValue={searchParams.get("search") || ""}
         onChange={handleInputChange}
       />
     </search>
