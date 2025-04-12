@@ -14,7 +14,6 @@ type Props = Pick<Product, "id" | "name" | "brand" | "storageOptions" | "colorOp
 export const ProductHeader: React.FC<Props> = ({
   id,
   name,
-  brand,
   storageOptions,
   colorOptions,
   currentStorage,
@@ -26,11 +25,7 @@ export const ProductHeader: React.FC<Props> = ({
   const selectedColor = colorOptions.find((option) => option.name === currentColor) || colorOptions[0];
 
   const handleAddToCart = () => {
-    cart.addToCart(
-      { id, name, brand, basePrice: storageOptions[0].price, colorOptions, storageOptions },
-      currentColor,
-      currentStorage
-    );
+    cart.addToCart({ id, name, color: selectedColor, storage: selectedStorage });
   };
 
   return (
