@@ -1,18 +1,14 @@
 "use client";
 
 import React, { createContext, useReducer, useEffect, ReactNode, useMemo } from "react";
-import { Product, ProductSummary } from "@/types/product";
+import { CartItem } from "@/types/cart";
 import { CartState, CartAction } from "@/types/cart";
 import { cartReducer } from "@/store/cart/reducers/cartReducer";
 import { useIsClient } from "@/hooks/useIsClient";
 
 export interface CartContextValue extends CartState {
-  addToCart: (
-    item: Pick<Product, "id" | "name" | "basePrice" | "brand" | "storageOptions" | "colorOptions">,
-    colorName: string,
-    storageCapacity: string
-  ) => void;
-  removeFromCart: (itemId: string) => void;
+  addToCart: (item: CartItem) => void;
+  removeFromCart: (item: CartItem) => void;
   itemsCount: number;
 }
 
@@ -25,7 +21,7 @@ const initialState: CartState = {
 export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const isClient = useIsClient();
 
-  const [state, dispatch] = useReducer<{ items: ProductSummary[] }, CartState, [action: CartAction]>(
+  const [state, dispatch] = useReducer<{ items: CartItem[] }, CartState, [action: CartAction]>(
     cartReducer,
     initialState,
     (initial) => {
@@ -53,26 +49,20 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
   }, [state.items, isClient]);
 
-  const addToCart = (
-    item: Pick<Product, "id" | "name" | "basePrice" | "brand" | "storageOptions" | "colorOptions">,
-    colorName: string,
-    storageCapacity: string
-  ) => {
-    const { storageOptions, colorOptions } = item;
-    const productColor = colorOptions.find((color) => color.name === colorName);
-    const productStorage = storageOptions.find((storage) => storage.capacity === storageCapacity);
-    const newProduct: ProductSummary = {
-      ...item,
-      basePrice: productStorage?.price || item.basePrice,
-      colorName: productColor?.name || colorOptions[0].name,
-      storage: productStorage?.capacity || storageOptions[0].capacity,
-      imageUrl: productColor?.imageUrl || colorOptions[0].imageUrl,
-    };
-    dispatch({ type: "ADD", payload: newProduct });
+  const addToCart = (item: CartItem) => {
+    // const { storageOptions, colorOptions } = item;
+    // const productColor = colorOptions.find((color) => color.name === selectedColor);
+    // const productStorage = storageOptions.find((storage) => storage.capacity === selectedStorage);
+    // const newProduct: CartItem = {
+    //   ...item,
+    //   storage: productStorage || storageOptions[0],
+    //   color: productColor || colorOptions[0],
+    // };
+    dispatch({ type: "ADD", payload: item });
   };
 
-  const removeFromCart = (itemId: string) => {
-    dispatch({ type: "REMOVE", payload: itemId });
+  const removeFromCart = (product: CartItem) => {
+    dispatch({ type: "REMOVE", payload: product });
   };
 
   const contextValue = useMemo(

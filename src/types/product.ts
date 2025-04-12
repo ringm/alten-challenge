@@ -15,20 +15,24 @@ export interface Product {
     os: string;
     screenRefreshRate: string;
   };
-  colorOptions: {
-    name: string;
-    hexCode: string;
-    imageUrl: string;
-  }[];
-  storageOptions: {
-    capacity: string;
-    price: number;
-  }[];
-  similarProducts: ProductSummary[];
+  colorOptions: ProductColor[];
+  storageOptions: ProductStorage[];
+  similarProducts: ProductCard[];
 }
 
-export type ProductSummary = Pick<Product, "id" | "brand" | "name" | "basePrice"> & {
+export type ProductCard = Pick<Product, "id" | "brand" | "name" | "basePrice"> & {
   imageUrl: string;
   colorName: string;
   storage: string;
+};
+
+export type ProductColor = {
+  name: string;
+  hexCode: string;
+  imageUrl: string;
+};
+
+export type ProductStorage = {
+  capacity: string;
+  price: number;
 };

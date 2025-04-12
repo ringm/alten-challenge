@@ -6,8 +6,8 @@ export const cartReducer = (state: CartState, action: CartAction) => {
       const itemExists = state.items.some(
         (item) =>
           item.id === action.payload.id &&
-          item.imageUrl === action.payload.imageUrl &&
-          item.basePrice === action.payload.basePrice
+          item.color.imageUrl === action.payload.color.imageUrl &&
+          item.storage.capacity === action.payload.storage.capacity
       );
       if (itemExists) {
         return state;
@@ -16,7 +16,12 @@ export const cartReducer = (state: CartState, action: CartAction) => {
       }
     }
     case "REMOVE": {
-      const updatedItems = state.items.filter((item) => item.id !== action.payload);
+      const updatedItems = state.items.filter(
+        (item) =>
+          item.id !== action.payload.id ||
+          item.color.imageUrl !== action.payload.color.imageUrl ||
+          item.storage.capacity !== action.payload.storage.capacity
+      );
       return { ...state, items: updatedItems };
     }
     default:
