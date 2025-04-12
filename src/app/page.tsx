@@ -1,19 +1,15 @@
-import styles from "./page.module.css";
-import { getProducts } from "@/services/productsService";
-import { ProductCard } from "@/components/cards/product/product";
+import { Suspense } from "react";
+import { Search } from "@/components/search/input/search";
+import { SearchResults } from "@/components/search/results/search-results";
 
-export default async function Home() {
-  const data = await getProducts({ limit: 20 });
-  if (!data) {
-    return <div>Error fetching products</div>;
-  }
+export default async function Home({ searchParams }: { searchParams: Promise<{ search: string }> }) {
+  const searchQuery = (await searchParams).search;
   return (
     <>
-      <div className={styles.results__wrapper}>
-        {data.map((product, i) => (
-          <ProductCard key={`${product.id}-${i}`} {...product} />
-        ))}
-      </div>
+      <Search />
+      <Suspense fallback={<p style={{ marginTop: "5rem" }}>Loading results...</p>}>
+        <SearchResults searchQuery={searchQuery} />
+      </Suspense>
     </>
   );
 }
