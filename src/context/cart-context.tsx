@@ -65,6 +65,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       ...item,
       basePrice: productStorage?.price || item.basePrice,
       colorName: productColor?.name || colorOptions[0].name,
+      storage: productStorage?.capacity || storageOptions[0].capacity,
       imageUrl: productColor?.imageUrl || colorOptions[0].imageUrl,
     };
     dispatch({ type: "ADD", payload: newProduct });

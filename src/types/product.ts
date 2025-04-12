@@ -30,4 +30,5 @@ export interface Product {
 export type ProductSummary = Pick<Product, "id" | "brand" | "name" | "basePrice"> & {
   imageUrl: string;
   colorName: string;
+  storage: string;
 };
