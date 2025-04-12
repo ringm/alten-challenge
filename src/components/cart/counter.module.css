@@ -1,0 +1,11 @@
+.label {
+  transition: opacity 0.25s;
+}
+
+.label[data-visible="false"] {
+  opacity: 0;
+}
+
+.label[data-visible="true"] {
+  opacity: 1;
+}
