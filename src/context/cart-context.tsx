@@ -50,14 +50,6 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   }, [state.items, isClient]);
 
   const addToCart = (item: CartItem) => {
-    // const { storageOptions, colorOptions } = item;
-    // const productColor = colorOptions.find((color) => color.name === selectedColor);
-    // const productStorage = storageOptions.find((storage) => storage.capacity === selectedStorage);
-    // const newProduct: CartItem = {
-    //   ...item,
-    //   storage: productStorage || storageOptions[0],
-    //   color: productColor || colorOptions[0],
-    // };
     dispatch({ type: "ADD", payload: item });
   };
 
