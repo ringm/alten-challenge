@@ -7,7 +7,7 @@ import { ChangeEvent } from "react";
 
 import s from "./search.module.css";
 
-export const Search: React.FC = () => {
+export const Search: React.FC<{ placeholder: string; label: string }> = ({ label, placeholder }) => {
   const updateQuery = useUpdateQueryParam();
   const searchParams = useSearchParams();
 
@@ -40,8 +40,8 @@ export const Search: React.FC = () => {
       <input
         className={s.input}
         type="search"
-        aria-label="Busca por modelo o marca"
-        placeholder="Busca por modelo o marca"
+        aria-label={label}
+        placeholder={placeholder}
         defaultValue={searchParams.get("search") || ""}
         onChange={handleInputChange}
       />

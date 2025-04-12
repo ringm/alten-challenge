@@ -26,9 +26,19 @@ export default async function ProductPage({
         storageOptions={product.storageOptions}
         currentStorage={storage}
         currentColor={color}
+        storageLabel="espacio ¿cuánto necesitas?"
+        colorLabel="color: elige el que más que gusta"
+        addButtonLabel="añadir"
+        productInCartLabel="éste producto ya se encuentra en el carrito"
       />
-      <ProductSpecs name={product.name} brand={product.brand} description={product.description} specs={product.specs} />
-      <SimilarProducts similarProducts={product.similarProducts} />
+      <ProductSpecs
+        title="especificaciones"
+        name={product.name}
+        brand={product.brand}
+        description={product.description}
+        specs={product.specs}
+      />
+      <SimilarProducts title="productos similares" similarProducts={product.similarProducts} />
     </>
   );
 }

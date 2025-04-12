@@ -3,14 +3,22 @@ import { getProducts } from "@/services/productsService";
 
 import s from "./search-results.module.css";
 
-export const SearchResults: React.FC<{ searchQuery: string }> = async ({ searchQuery }) => {
+interface Props {
+  title: string;
+  searchQuery: string;
+  notFoundMessage: string;
+}
+
+export const SearchResults: React.FC<Props> = async ({ title, notFoundMessage, searchQuery }) => {
   const data = await getProducts({ limit: searchQuery ? 0 : 20, search: searchQuery });
   if (!data) {
-    return <div>Error fetching products</div>;
+    return <div>Error buscando resultados</div>;
   }
   return (
     <section>
-      <h2 className={s.title}>{data.length} resultados</h2>
+      <h2 className={s.title}>
+        {data.length} {title}
+      </h2>
       {data.length > 0 ? (
         <div className={s.results__wrapper} data-less-than-three={data.length < 3}>
           {data.map((product, i) => (
@@ -18,10 +26,7 @@ export const SearchResults: React.FC<{ searchQuery: string }> = async ({ searchQ
           ))}
         </div>
       ) : (
-        <div>
-          No encontramos resultados para tu búsqueda. Intenta con otra marca (&quot;Apple&quot;, &quot;Samsung&quot;,
-          etc) o modelo (&quot;Galaxy&quot;, &quot;iPhone&quot;, etc).
-        </div>
+        <div>{notFoundMessage}</div>
       )}
     </section>
   );

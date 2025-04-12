@@ -2,13 +2,14 @@ import { Product } from "@/types/product";
 import s from "./product-specs.module.css";
 
 interface Props {
+  title: string;
   specs: Product["specs"];
   name: Product["name"];
   brand: Product["brand"];
   description: Product["description"];
 }
 
-export const ProductSpecs: React.FC<Props> = ({ brand, name, description, specs }) => {
+export const ProductSpecs: React.FC<Props> = ({ title, brand, name, description, specs }) => {
   const specsArr = Object.entries({ name, brand, description, ...specs });
 
   const formatKey = (keyString: string) => {
@@ -19,7 +20,7 @@ export const ProductSpecs: React.FC<Props> = ({ brand, name, description, specs 
 
   return (
     <section className={s.section}>
-      <h2 className={s.title}>Especificaciones</h2>
+      <h2 className={s.title}>{title}</h2>
       <table className={s.table}>
         <tbody>
           {specsArr.map(([key, value]) => (

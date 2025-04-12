@@ -11,6 +11,10 @@ import s from "./product-header.module.css";
 type Props = Pick<Product, "id" | "name" | "brand" | "storageOptions" | "colorOptions"> & {
   currentStorage: string;
   currentColor: string;
+  storageLabel: string;
+  colorLabel: string;
+  addButtonLabel: string;
+  productInCartLabel: string;
 };
 
 export const ProductHeader: React.FC<Props> = ({
@@ -20,6 +24,10 @@ export const ProductHeader: React.FC<Props> = ({
   colorOptions,
   currentStorage,
   currentColor,
+  storageLabel,
+  colorLabel,
+  addButtonLabel,
+  productInCartLabel,
 }) => {
   const [showTip, setShowTip] = useState(false);
   const updateQuery = useUpdateQueryParam();
@@ -60,7 +68,7 @@ export const ProductHeader: React.FC<Props> = ({
         <p className={s.price}>
           {selectedStorage.price} <span>EUR</span>
         </p>
-        <p className={s.label}>espacio: ¿cuánto necesitas?</p>
+        <p className={s.label}>{storageLabel}</p>
         <div className={s.storage_container}>
           {storageOptions.map((storage) => (
             <button
@@ -73,7 +81,7 @@ export const ProductHeader: React.FC<Props> = ({
             </button>
           ))}
         </div>
-        <p className={s.label}>color: elige tu favorito</p>
+        <p className={s.label}>{colorLabel}</p>
         <div className={s.colors_container}>
           {colorOptions.map((color) => (
             <button
@@ -93,7 +101,7 @@ export const ProductHeader: React.FC<Props> = ({
           data-show-tip={showTip}
           onClick={handleAddToCart}
         >
-          {isClient && isInCart ? "éste producto ya se ecuentra en el carro" : "añadir"}
+          {isClient && isInCart ? productInCartLabel : addButtonLabel}
         </button>
       </div>
     </header>

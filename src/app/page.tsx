@@ -6,9 +6,14 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
   const searchQuery = (await searchParams).search;
   return (
     <>
-      <Search />
+      <Search placeholder="Busca por marca o modelo" label="Busca por marca o modelo" />
       <Suspense fallback={<p style={{ marginTop: "5rem" }}>Cargando resultados...</p>}>
-        <SearchResults searchQuery={searchQuery} />
+        <SearchResults
+          searchQuery={searchQuery}
+          title="resultados"
+          notFoundMessage='No encontramos resultados para tu búsqueda. Intenta con otra marca ("Apple", "Samsung",
+          etc) o modelo ("Galaxy", "iPhone", etc).'
+        />
       </Suspense>
     </>
   );

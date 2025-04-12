@@ -7,10 +7,11 @@ import { useCustomScrollbar } from "@/hooks/useCustomScrollbar";
 import s from "./similar-products.module.css";
 
 interface Props {
+  title: string;
   similarProducts: Product["similarProducts"];
 }
 
-export const SimilarProducts: React.FC<Props> = ({ similarProducts }) => {
+export const SimilarProducts: React.FC<Props> = ({ title, similarProducts }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const thumbRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -19,7 +20,7 @@ export const SimilarProducts: React.FC<Props> = ({ similarProducts }) => {
 
   return (
     <section className={s.section}>
-      <h2 className={s.title}>productos similares</h2>
+      <h2 className={s.title}>{title}</h2>
       <div className={s.slider_wrapper}>
         <div ref={containerRef} className={s.slider_container}>
           <div className={s.slider}>
