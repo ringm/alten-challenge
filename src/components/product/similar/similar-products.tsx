@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { Product } from "@/types/product";
-import { ProductCard } from "@/components/cards/product/product";
+import { ProductCard } from "@/components/product/card/product-card";
 import { useCustomScrollbar } from "@/hooks/useCustomScrollbar";
 import s from "./similar-products.module.css";
 
