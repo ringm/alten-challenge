@@ -4,6 +4,12 @@
   --gray-500: #79736d;
   --gray-700: #1b1a18;
   --red-500: #df0000;
+
+  --font-xl: 1.5rem;
+  --font-lg: 1.25rem;
+  --font-md: 0.875rem;
+  --font-sm: 0.75rem;
+  --font-xs: 0.625rem;
 }
 
 html,
