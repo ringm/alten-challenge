@@ -83,6 +83,8 @@
 }
 
 .add_button {
+  border: none;
+  position: relative;
   cursor: pointer;
   width: 100%;
   text-transform: uppercase;
@@ -91,6 +93,38 @@
   background-color: black;
   color: white;
   font-size: var(--font-sm);
+  transition: background-color 0.25s;
+}
+
+.add_button:disabled {
+  border: none;
+  background-color: var(--gray-300);
+  cursor: not-allowed;
+}
+
+.add_button::before {
+  content: "¡Producto añadido al carrito!";
+  display: block;
+  position: absolute;
+  right: 0;
+  top: -1.75rem;
+  background-color: green;
+  color: white;
+  width: fit-content;
+  text-transform: initial;
+  z-index: 0;
+  padding: 0.25rem 0.5rem;
+  transition: all 0.25s;
+}
+
+.add_button[data-show-tip="false"]::before {
+  opacity: 0;
+  transform: translateX(1rem);
+}
+
+.add_button[data-show-tip="true"]::before {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 @media (min-width: 768px) {

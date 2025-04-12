@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { Product } from "@/types/product";
 import { useUpdateQueryParam } from "@/hooks/useUpdateQueryParam";
 import { useCart } from "@/hooks/useCart";
+import { useIsClient } from "@/hooks/useIsClient";
 import Image from "next/image";
 import s from "./product-header.module.css";
 
@@ -19,13 +21,25 @@ export const ProductHeader: React.FC<Props> = ({
   currentStorage,
   currentColor,
 }) => {
+  const [showTip, setShowTip] = useState(false);
   const updateQuery = useUpdateQueryParam();
+  const isClient = useIsClient();
   const cart = useCart();
   const selectedStorage = storageOptions.find((option) => option.capacity === currentStorage) || storageOptions[0];
   const selectedColor = colorOptions.find((option) => option.name === currentColor) || colorOptions[0];
+  const isInCart = cart.items.some(
+    (item) =>
+      item.id === id &&
+      item.color.imageUrl === selectedColor.imageUrl &&
+      item.storage.capacity === selectedStorage.capacity
+  );
 
   const handleAddToCart = () => {
     cart.addToCart({ id, name, color: selectedColor, storage: selectedStorage });
+    setShowTip(true);
+    setTimeout(() => {
+      setShowTip(false);
+    }, 3000);
   };
 
   return (
@@ -46,7 +60,7 @@ export const ProductHeader: React.FC<Props> = ({
         <p className={s.price}>
           {selectedStorage.price} <span>EUR</span>
         </p>
-        <p className={s.label}>storage: how much do you need?</p>
+        <p className={s.label}>espacio: ¿cuánto necesitas?</p>
         <div className={s.storage_container}>
           {storageOptions.map((storage) => (
             <button
@@ -59,7 +73,7 @@ export const ProductHeader: React.FC<Props> = ({
             </button>
           ))}
         </div>
-        <p className={s.label}>color: pick your favorite</p>
+        <p className={s.label}>color: elige tu favorito</p>
         <div className={s.colors_container}>
           {colorOptions.map((color) => (
             <button
@@ -73,8 +87,13 @@ export const ProductHeader: React.FC<Props> = ({
           ))}
         </div>
         <p className={s.color_name}>{selectedColor.name}</p>
-        <button className={s.add_button} onClick={handleAddToCart}>
-          añadir
+        <button
+          className={s.add_button}
+          disabled={isClient ? isInCart : true}
+          data-show-tip={showTip}
+          onClick={handleAddToCart}
+        >
+          {isClient && isInCart ? "éste producto ya se ecuentra en el carro" : "añadir"}
         </button>
       </div>
     </header>
