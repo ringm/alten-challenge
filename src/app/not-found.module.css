@@ -1,0 +1,23 @@
+.title {
+  font-size: var(--font-xl);
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-size: var(--font-md);
+  margin-bottom: 4rem;
+}
+
+.button {
+  text-transform: uppercase;
+  font-size: var(--font-sm);
+  display: inline-block;
+  background-color: black;
+  color: white;
+  width: fit-content;
+  align-self: start;
+  padding: 1rem 2rem;
+}
