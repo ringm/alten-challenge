@@ -52,19 +52,18 @@ export const ProductHeader: React.FC<Props> = ({
 
   return (
     <header className={s.header}>
-      <div className={s.image_wrapper}>
+      <div className={s.img_wrapper}>
         <Image
-          className={s.image}
+          className={s.img}
           priority
           src={selectedColor.imageUrl}
           alt={`${name} ${selectedColor.name} product picture`}
-          width={510}
-          height={630}
-          style={{ objectFit: "contain" }}
+          fill
+          sizes="(max-width: 768px) 100vw, 50%"
         />
       </div>
-      <div className={s.header_info}>
-        <h1 className={s.title}>{name}</h1>
+      <div className={s.info}>
+        <h2 className={s.title}>{name}</h2>
         <p className={s.price}>
           {selectedStorage.price} <span>EUR</span>
         </p>

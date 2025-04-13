@@ -22,7 +22,7 @@ export const SearchResults: React.FC<Props> = async ({ title, notFoundMessage, s
       {data.length > 0 ? (
         <div className={s.results__wrapper} data-less-than-three={data.length < 3}>
           {data?.map((product, i) => (
-            <ProductCard key={`${product.id}-${i}`} {...product} currency="EUR" />
+            <ProductCard key={`${product.id}-${i}`} idx={i} {...product} currency="EUR" />
           ))}
         </div>
       ) : (

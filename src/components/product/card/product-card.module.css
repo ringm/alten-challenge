@@ -7,11 +7,11 @@
   align-items: center;
 }
 
-.card__link {
+.link {
   position: relative;
 }
 
-.card__link::before {
+.link::before {
   content: "";
   position: absolute;
   background-color: black;
@@ -25,28 +25,33 @@
   transform: scaleY(0);
 }
 
-.card__link:hover::before {
+.link:hover::before {
   transform: scaleY(1);
 }
 
-.card__link:hover .card__overTitle {
+.link:hover .overTitle {
   color: var(--gray-300);
 }
 
-.card__link:hover .card__title {
+.link:hover .title {
   color: white;
 }
 
-.card__link:hover .card__price {
+.link:hover .price {
   color: white;
 }
 
-.card__img {
-  display: block;
+.img_wrapper {
+  position: relative;
+  width: 21.563rem;
+  height: 18.125rem;
+}
+
+.img {
   object-fit: contain;
 }
 
-.card__info {
+.info {
   width: 100%;
   margin-top: 1.5rem;
   display: grid;
@@ -55,7 +60,7 @@
   text-transform: uppercase;
 }
 
-.card__overTitle {
+.overTitle {
   color: var(--gray-500);
   font-size: var(--font-xs);
   font-weight: 300;
@@ -65,19 +70,19 @@
   transition: color 0.25s;
 }
 
-.card__title,
-.card__price {
+.title,
+.price {
   font-size: var(--font-sm);
   font-weight: 300;
   transition: color 0.25s;
 }
 
-.card__title {
+.title {
   grid-column-start: 1;
   grid-row-start: 2;
 }
 
-.card__price {
+.price {
   grid-column-start: 2;
   grid-row-start: 2;
   justify-self: end;

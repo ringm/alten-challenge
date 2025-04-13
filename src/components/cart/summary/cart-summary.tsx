@@ -17,9 +17,9 @@ export const CartSummary: React.FC<Props> = ({ title, continueBuyingLabel, payLa
   const isClient = useIsClient();
   const cartTotal = cart.items.reduce((total, item) => total + item.storage.price, 0);
   return (
-    <div className={s.cart_summary}>
+    <section className={s.cart_summary}>
       <div className={s.cart_total}>
-        <p>{title}</p>
+        <h2>{title}</h2>
         <p data-testid="cart-total">
           {isClient ? cartTotal : 0} {currency}
         </p>
@@ -32,6 +32,6 @@ export const CartSummary: React.FC<Props> = ({ title, continueBuyingLabel, payLa
           {payLabel}
         </button>
       </div>
-    </div>
+    </section>
   );
 };

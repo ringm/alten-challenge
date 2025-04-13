@@ -54,6 +54,24 @@ a {
   text-decoration: none;
 }
 
+.main-heading {
+  text-transform: uppercase;
+  font-size: var(--font-xl);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: nowrap;
+  margin: -1px;
+}
+
 @media (min-width: 768px) {
   .wrapper {
     padding: 0 2.5rem;

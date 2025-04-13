@@ -6,6 +6,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
   const searchQuery = (await searchParams)?.search;
   return (
     <>
+      <h1 className="visually-hidden">Página principal</h1>
       <Search placeholder="Busca por marca o modelo" label="Busca por marca o modelo" />
       <Suspense fallback={<p style={{ marginTop: "5rem" }}>Cargando resultados...</p>}>
         <SearchResults

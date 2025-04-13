@@ -18,6 +18,7 @@ export default async function ProductPage({
   }
   return (
     <>
+      <h1 className="visually-hidden">Detalles del producto: {product.name}</h1>
       <ProductHeader
         id={product.id}
         name={product.name}

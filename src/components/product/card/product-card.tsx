@@ -3,7 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import s from "./product-card.module.css";
 
-export const ProductCard: React.FC<ProductCardProps & { currency: string }> = ({
+export const ProductCard: React.FC<ProductCardProps & { currency: string; idx: number }> = ({
+  idx,
   id,
   brand,
   name,
@@ -11,14 +12,24 @@ export const ProductCard: React.FC<ProductCardProps & { currency: string }> = ({
   imageUrl,
   currency,
 }) => {
+  const shouldLoadImage = idx <= 6;
   return (
-    <Link className={s.card__link} href={`/products/${id}`}>
+    <Link className={s.link} href={`/products/${id}`}>
       <article data-testid="product-card" className={s.card}>
-        <Image priority className={s.card__img} src={imageUrl} alt={`${name} product image`} width={345} height={290} />
-        <div className={s.card__info}>
-          <p className={s.card__overTitle}>{brand}</p>
-          <h3 className={s.card__title}>{name}</h3>
-          <p className={s.card__price}>
+        <div className={s.img_wrapper}>
+          <Image
+            priority={shouldLoadImage}
+            className={s.img}
+            src={imageUrl}
+            alt={`${name} product image`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1300px) 50vw, (max-width: 1540px) 25vw, 20vw"
+          />
+        </div>
+        <div className={s.info}>
+          <p className={s.overTitle}>{brand}</p>
+          <h3 className={s.title}>{name}</h3>
+          <p className={s.price}>
             {basePrice} <span>{currency}</span>
           </p>
         </div>

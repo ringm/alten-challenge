@@ -6,11 +6,17 @@
   padding: 1rem 0;
 }
 
-.item_image {
+.img_wrapper {
+  width: 10rem;
+  height: 12.5rem;
+  position: relative;
+}
+
+.img {
   object-fit: contain;
 }
 
-.item_info {
+.info {
   align-self: center;
   text-transform: uppercase;
   font-size: var(--font-sm);
@@ -19,15 +25,15 @@
   align-items: flex-start;
 }
 
-.item_title {
+.title {
   margin-bottom: 0.25rem;
 }
 
-.item_desc {
+.desc {
   margin-bottom: 1.25rem;
 }
 
-.item_price {
+.price {
   margin-bottom: 2rem;
 }
 
@@ -50,7 +56,7 @@
     padding: 1rem;
   }
 
-  .item_image {
+  .img {
     max-width: 16.5rem;
     height: auto;
   }
