@@ -13,7 +13,7 @@ export default function CartPage() {
         </span>
       </h1>
       <CartItemsList />
-      <CartSummary title="total" continueBuyingLabel="seguir comprando" payLabel="pagar" />
+      <CartSummary title="total" continueBuyingLabel="seguir comprando" payLabel="pagar" currency="EUR" />
     </div>
   );
 }
