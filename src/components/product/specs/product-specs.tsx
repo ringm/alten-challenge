@@ -23,7 +23,7 @@ export const ProductSpecs: React.FC<Props> = ({ title, brand, name, description,
       <h2 className={s.title}>{title}</h2>
       <table className={s.table}>
         <tbody>
-          {specsArr.map(([key, value]) => (
+          {specsArr?.map(([key, value]) => (
             <tr key={key} className={s.row}>
               <td className={`${s.spec_title} ${s.td}`}>{formatKey(key)}</td>
               <td className={s.td}>{value}</td>

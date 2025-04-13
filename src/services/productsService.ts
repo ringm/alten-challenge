@@ -1,8 +1,8 @@
 import { SearchParams } from "@/types/api";
-import { Product, ProductSummary } from "@/types/product";
+import { Product, ProductCard } from "@/types/product";
 import { customFetch } from "@/utils/api";
 
-export const getProducts = async (params: SearchParams): Promise<ProductSummary[] | null> => {
+export const getProducts = async (params: SearchParams): Promise<ProductCard[] | null> => {
   try {
     const definedParams: Record<string, string> = {};
 
@@ -13,7 +13,7 @@ export const getProducts = async (params: SearchParams): Promise<ProductSummary[
     });
 
     const searchParams = new URLSearchParams(definedParams);
-    const data = await customFetch<ProductSummary[]>(
+    const data = await customFetch<ProductCard[]>(
       `${process.env.NEXT_PUBLIC_API_URL}/products?${searchParams.toString()}`
     );
 

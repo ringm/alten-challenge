@@ -22,8 +22,6 @@ export interface Product {
 
 export type ProductCard = Pick<Product, "id" | "brand" | "name" | "basePrice"> & {
   imageUrl: string;
-  colorName: string;
-  storage: string;
 };
 
 export type ProductColor = {
@@ -36,3 +34,10 @@ export type ProductStorage = {
   capacity: string;
   price: number;
 };
+export interface ProductSpecsComponentProps {
+  title: string;
+  specs: Product["specs"];
+  name: Product["name"];
+  brand: Product["brand"];
+  description: Product["description"];
+}

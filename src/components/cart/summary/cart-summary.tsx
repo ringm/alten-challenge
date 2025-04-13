@@ -9,9 +9,10 @@ interface Props {
   title: string;
   continueBuyingLabel: string;
   payLabel: string;
+  currency: string;
 }
 
-export const CartSummary: React.FC<Props> = ({ title, continueBuyingLabel, payLabel }) => {
+export const CartSummary: React.FC<Props> = ({ title, continueBuyingLabel, payLabel, currency }) => {
   const cart = useCart();
   const isClient = useIsClient();
   const cartTotal = cart.items.reduce((total, item) => total + item.storage.price, 0);
@@ -19,7 +20,9 @@ export const CartSummary: React.FC<Props> = ({ title, continueBuyingLabel, payLa
     <div className={s.cart_summary}>
       <div className={s.cart_total}>
         <p>{title}</p>
-        <p>{isClient ? cartTotal : 0} EUR</p>
+        <p data-testid="cart-total">
+          {isClient ? cartTotal : 0} {currency}
+        </p>
       </div>
       <div className={s.cart_actions}>
         <Link className={s.continue_btn_link} href={{ pathname: "/" }}>

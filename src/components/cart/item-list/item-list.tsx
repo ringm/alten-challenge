@@ -9,8 +9,11 @@ export const CartItemsList: React.FC = () => {
   const cart = useCart();
   const isClient = useIsClient();
   return (
-    <div className={s.cart_list}>
-      {isClient && cart.items?.map((item, idx) => <CartItem key={`${item.id}-${idx}`} {...item} />)}
+    <div data-testid="cart-item-list" className={s.cart_list}>
+      {isClient &&
+        cart.items?.map((item, idx) => (
+          <CartItem key={`${item.id}-${idx}`} {...item} currency="EUR" btnLabel="Eliminar" />
+        ))}
     </div>
   );
 };

@@ -17,16 +17,16 @@ export const SearchResults: React.FC<Props> = async ({ title, notFoundMessage, s
   return (
     <section>
       <h2 className={s.title}>
-        {data.length} {title}
+        {data?.length} {title}
       </h2>
       {data.length > 0 ? (
         <div className={s.results__wrapper} data-less-than-three={data.length < 3}>
-          {data.map((product, i) => (
-            <ProductCard key={`${product.id}-${i}`} {...product} />
+          {data?.map((product, i) => (
+            <ProductCard key={`${product.id}-${i}`} {...product} currency="EUR" />
           ))}
         </div>
       ) : (
-        <div>{notFoundMessage}</div>
+        <p>{notFoundMessage}</p>
       )}
     </section>
   );

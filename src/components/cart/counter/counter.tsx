@@ -9,7 +9,7 @@ export const CartCounter: React.FC = () => {
   const isClient = useIsClient();
 
   return (
-    <span className={s.label} data-visible={isClient}>
+    <span data-testid={"cart-counter"} className={s.label} data-visible={isClient}>
       {isClient ? cart.itemsCount : 0}
     </span>
   );

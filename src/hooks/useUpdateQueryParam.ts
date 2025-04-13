@@ -1,7 +1,7 @@
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useCallback } from "react";
 
-type ParamKey = "storage" | "color" | "search";
+export type ParamKey = "storage" | "color" | "search";
 
 export const useUpdateQueryParam = () => {
   const router = useRouter();

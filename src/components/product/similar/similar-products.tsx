@@ -24,8 +24,8 @@ export const SimilarProducts: React.FC<Props> = ({ title, similarProducts }) => 
       <div className={s.slider_wrapper}>
         <div ref={containerRef} className={s.slider_container}>
           <div className={s.slider}>
-            {similarProducts.map((product, idx) => (
-              <ProductCard key={`${product.id}-${idx}`} {...product} />
+            {similarProducts?.map((product, idx) => (
+              <ProductCard key={`${product.id}-${idx}`} {...product} currency="EUR" />
             ))}
           </div>
         </div>
