@@ -1,10 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Este es un proyecto [Next.js](https://nextjs.org) iniciado con [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# [MBST Store] - Alten Challenge
 
-First, run the development server:
+## Primeros Pasos
 
-```bash
+### Prerrequisitos
+
+Antes de ejecutar el proyecto, asegúrate de tener instalado Node.js y npm/yarn/pnpm/bun.
+
+### Variables de Entorno
+
+Este proyecto requiere las siguientes variables de entorno para conectarse a la API backend. Crea un archivo `.env.local` en la raíz del proyecto y añade las siguientes líneas:
+
+```
+NEXT_PUBLIC_API_KEY="87909682e6cd74208f41a6ef39fe4191"
+NEXT_PUBLIC_API_URL="https://prueba-tecnica-api-tienda-moviles.onrender.com](https://prueba-tecnica-api-tienda-moviles.onrender.com"
+```
+
+### Ejecutando el Proyecto
+
+Primero, instala las dependencias:
+
+```
+npm install
+# o
+yarn install
+# o
+pnpm install
+# o
+bun install
+```
+
+Luego, ejecuta el servidor de desarrollo:
+
+```
 npm run dev
 # or
 yarn dev
@@ -14,23 +43,34 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre http://localhost:3000 con tu navegador para ver el resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Puedes comenzar a editar la página modificando app/page.tsx. La página se actualiza automáticamente a medida que editas el archivo.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Ejecutando las Pruebas
 
-## Learn More
+Para ejecutar las pruebas automatizadas incluidas en el proyecto:
 
-To learn more about Next.js, take a look at the following resources:
+```
+npm test
+# o
+yarn test
+# o
+pnpm test
+# o
+bun test
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Notas y Decisiones del Proyecto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Aquí hay algunas notas sobre detalles específicos de implementación y decisiones tomadas durante el desarrollo:
 
-## Deploy on Vercel
+* Consistencia del Idioma: Se observaron algunas inconsistencias de idioma entre los archivos de diseño de Figma proporcionados y los datos devueltos por la API (algunos en inglés, otros en español). Para asegurar una experiencia de usuario consistente, los elementos de la interfaz de usuario, etiquetas y textos controlados directamente por esta aplicación frontend se han estandarizado a Español.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Comportamiento del Botón "Añadir al Carrito": Los requisitos iniciales sugerían que el botón "Añadir al Carrito" debería estar deshabilitado hasta que se seleccionaran las opciones del producto (como color o almacenamiento). Sin embargo, para proporcionar lo que creo que es una experiencia de usuario más fluida, los productos ahora cargan con opciones preseleccionadas por defecto, y el botón "Añadir al Carrito" está habilitado por defecto, permitiendo a los usuarios añadir artículos inmediatamente si la configuración predeterminada les conviene.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Limitación de Cantidad en el Carrito: La implementación actual solo permite añadir una unidad de cada modelo de producto distinto (identificado por su ID, potencialmente variando por combinación de color/almacenamiento dependiendo de cómo se defina CartItem) al carrito. El diseño de Figma no incluía elementos de UI para la selección de cantidad (ej., botones +/-, campo de cantidad) ni en las páginas de producto ni en la vista del carrito. Aunque añadir la gestión de cantidades mejoraría la experiencia de compra, se consideró fuera del alcance de este reto técnico y representa una posible área de mejora futura.
+
+## ¡Gracias!
+
+Gracias por la oportunidad de realizar este reto técnico. ¡Ha sido un proyecto muy divertido e interesante en el que trabajar!
