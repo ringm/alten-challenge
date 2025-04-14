@@ -13,9 +13,7 @@ export const getProducts = async (params: SearchParams): Promise<ProductCard[] |
     });
 
     const searchParams = new URLSearchParams(definedParams);
-    const data = await customFetch<ProductCard[]>(
-      `${process.env.NEXT_PUBLIC_API_URL}/products?${searchParams.toString()}`
-    );
+    const data = await customFetch<ProductCard[]>(`${process.env.API_URL}/products?${searchParams.toString()}`);
 
     return data;
   } catch (error) {
@@ -25,7 +23,7 @@ export const getProducts = async (params: SearchParams): Promise<ProductCard[] |
 };
 export const getProductById = async (id: string) => {
   try {
-    const data = await customFetch<Product>(`${process.env.NEXT_PUBLIC_API_URL}/products/${id}`);
+    const data = await customFetch<Product>(`${process.env.API_URL}/products/${id}`);
     return data;
   } catch (error) {
     console.error("Error fetching product by ID:", error);

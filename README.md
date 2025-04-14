@@ -13,8 +13,8 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado Node.js y npm/yarn/
 Este proyecto requiere las siguientes variables de entorno para conectarse a la API backend. Crea un archivo `.env.local` en la raíz del proyecto y añade las siguientes líneas:
 
 ```
-NEXT_PUBLIC_API_KEY="87909682e6cd74208f41a6ef39fe4191"
-NEXT_PUBLIC_API_URL="https://prueba-tecnica-api-tienda-moviles.onrender.com"
+API_KEY="87909682e6cd74208f41a6ef39fe4191"
+API_URL="https://prueba-tecnica-api-tienda-moviles.onrender.com"
 ```
 
 ### Ejecutando el Proyecto
