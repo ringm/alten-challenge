@@ -23,12 +23,6 @@ Primero, instala las dependencias:
 
 ```
 npm install
-# o
-yarn install
-# o
-pnpm install
-# o
-bun install
 ```
 
 Luego, ejecuta el servidor de desarrollo:
