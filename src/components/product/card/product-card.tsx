@@ -4,7 +4,7 @@ import Image from "next/image";
 import s from "./product-card.module.css";
 
 export const ProductCard: React.FC<ProductCardProps & { currency: string; idx?: number }> = ({
-  idx,
+  idx = 10,
   id,
   brand,
   name,
@@ -12,7 +12,7 @@ export const ProductCard: React.FC<ProductCardProps & { currency: string; idx?: 
   imageUrl,
   currency,
 }) => {
-  const shouldPreload = idx ? idx <= 3 : false;
+  const shouldPreload = idx <= 6;
   return (
     <Link prefetch={false} className={s.link} href={`/products/${id}`}>
       <article data-testid="product-card" className={s.card}>
