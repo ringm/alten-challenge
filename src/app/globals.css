@@ -57,6 +57,7 @@ a {
 .main-heading {
   text-transform: uppercase;
   font-size: var(--font-xl);
+  margin-bottom: 1.5rem;
 }
 
 .visually-hidden {

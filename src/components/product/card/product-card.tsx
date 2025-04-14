@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import s from "./product-card.module.css";
 
-export const ProductCard: React.FC<ProductCardProps & { currency: string; idx: number }> = ({
+export const ProductCard: React.FC<ProductCardProps & { currency: string; idx?: number }> = ({
   idx,
   id,
   brand,
@@ -12,13 +12,13 @@ export const ProductCard: React.FC<ProductCardProps & { currency: string; idx: n
   imageUrl,
   currency,
 }) => {
-  const shouldLoadImage = idx <= 6;
+  const shouldPreload = idx ? idx <= 3 : false;
   return (
-    <Link className={s.link} href={`/products/${id}`}>
+    <Link prefetch={false} className={s.link} href={`/products/${id}`}>
       <article data-testid="product-card" className={s.card}>
         <div className={s.img_wrapper}>
           <Image
-            priority={shouldLoadImage}
+            priority={shouldPreload}
             className={s.img}
             src={imageUrl}
             alt={`${name} product image`}

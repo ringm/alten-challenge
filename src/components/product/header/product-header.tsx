@@ -54,8 +54,8 @@ export const ProductHeader: React.FC<Props> = ({
     <header className={s.header}>
       <div className={s.img_wrapper}>
         <Image
-          className={s.img}
           priority
+          className={s.img}
           src={selectedColor.imageUrl}
           alt={`${name} ${selectedColor.name} product picture`}
           fill

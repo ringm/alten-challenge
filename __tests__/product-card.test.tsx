@@ -10,8 +10,6 @@ const mockProduct: ProductCardProps = {
   name: "iPhone 15",
   basePrice: 959,
   imageUrl: "http://prueba-tecnica-api-tienda-moviles.onrender.com/images/OPP-A60-midnight-purple.webp",
-  colorName: "Yellow",
-  storage: "256 GB",
 };
 
 describe("ProductCard Component", () => {
